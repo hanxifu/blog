@@ -6,35 +6,6 @@ tags: [CSAPP]
 
 # Chapter 2
 
-<!-- TOC -->
-
-- [Chapter 2](#chapter-2)
-  - [Concepts](#concepts)
-  - [Excercises](#excercises)
-    - [2.1](#21)
-    - [2.2](#22)
-    - [2.3](#23)
-    - [2.4](#24)
-    - [2.5](#25)
-    - [2.6](#26)
-    - [2.7](#27)
-    - [2.8](#28)
-    - [2.9](#29)
-    - [2.10](#210)
-    - [2.11](#211)
-    - [2.12](#212)
-    - [2.13](#213)
-    - [2.14](#214)
-    - [2.15](#215)
-    - [2.16](#216)
-    - [2.17](#217)
-    - [2.18](#218)
-    - [2.19](#219)
-    - [2.20](#220)
-    - [2.21](#221)
-
-<!-- /TOC -->
-
 ## Concepts
 
 TBD
@@ -354,3 +325,50 @@ return !(x ^ y);
 | -2147483647 - 1U < 2147483647  | unsigned | 0   | $T2U_{32}(-2^{31}) = 2^{31}$ > $2^{31} -1$                        |
 | -2147483647 - 1 < -2147483647  | signed   | 1   | will not overflow                                                 |
 | -2147483647 - 1U < -2147483647 | unsigned | 1   | $T2U_{32}(-2^{31}) = 2^{31}$ $T2U_{32}(-2^{31} + 1) = 2^{31} + 1$ |
+
+### 2.22
+
+| bin    | $B2T_w$                           |
+| ------ | --------------------------------- |
+| 1011   | -2^3 + 2^1 + 2^0 = -5             |
+| 11011  | -2^4 + 2^3 + 2^1 + 2^0 = -5       |
+| 111011 | -2^5 + 2^4 + 2^3 + 2^1 + 2^0 = -5 |
+
+### 2.23
+
+| w          | $fun1(w)$  | $fun2(w)$  |
+| ---------- | ---------- | ---------- |
+| 0x00000076 | 0x00000076 | 0x00000076 |
+| 0x87654321 | 0x00000021 | 0x00000021 |
+| 0x000000C9 | 0x000000C9 | 0xFFFFFFC9 |
+| 0xEDCBA987 | 0x00000087 | 0xFFFFFF87 |
+
+### 2.24
+
+| origin(hex) | cutoff(hex) | origin(unsigned) | cutoff(unsigned) | T   | cutoff(T)                  |
+| ----------- | ----------- | ---------------- | ---------------- | --- | -------------------------- |
+| 0           | 0           | 0                | 0                | 0   | 0 < $TMax_3$ 0             |
+| 2           | 2           | 2                | 2                | 2   | 2 < $TMax_3$ 2             |
+| 9           | 1           | 9                | 1                | -7  | -7 < $TMin_3$ -7 + 2^3 = 1 |
+| B           | 3           | 11               | 3                | -5  | -5 < $TMin_3$ -5 + 2^3 = 3 |
+| F           | 7           | 15               | 7                | -1  | -1 < $TMax_3$ -1           |
+
+### 2.25
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/length.c)
+
+1. (unsigned)0 - 1 = 4294967295
+2. (unsigned)i <= 4294967295 (always true)
+3. access a[...]
+
+### 2.26
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/strlonger.c)
+
+A. when strlen(s) < strlen(t), the result will be mistaken.
+
+B. (unsigned)0 - (unsigned)1 = 4294967295 > 0, so it will always return 1.
+
+C. Change to `return strlen(s) > strlen(t);`
+
+To Be Continued...

@@ -6,16 +6,6 @@ tags: [CSAPP]
 
 # Chapter 1
 
-<!-- TOC -->
-
-- [Chapter 1](#chapter-1)
-  - [Concepts](#concepts)
-  - [Excercises](#excercises)
-    - [1.1](#11)
-    - [1.2](#12)
-
-<!-- /TOC -->
-
 ## Concepts
 
 TBD
