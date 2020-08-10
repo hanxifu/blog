@@ -371,4 +371,40 @@ B. (unsigned)0 - (unsigned)1 = 4294967295 > 0, so it will always return 1.
 
 C. Change to `return strlen(s) > strlen(t);`
 
-To Be Continued...
+### 2.27
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/uadd_ok.c)
+
+### 2.28
+
+| x(hex) | x(dec) | $-{^u_4}x$(hex) | $-{^u_4}x$(dec) |
+| ------ | ------ | --------------- | --------------- |
+| 0      | 0      | 0               | 0               |
+| 5      | 5      | B               | 11              |
+| 8      | 8      | 8               | 8               |
+| D      | 13     | 3               | 3               |
+| F      | 15     | 1               | 1               |
+
+### 2.29
+
+| x     | y     | x+y    | $x+{^t_5}(y)$ | cond         |
+| ----- | ----- | ------ | ------------- | ------------ |
+| 10100 | 10001 | 100101 | 00101         | neg overflow |
+| 11000 | 11000 | 110000 | 10000         | neg overflow |
+| 10111 | 01000 | 11111  | 11111         | neg normal   |
+| 00010 | 00101 | 00111  | 00111         | pos normal   |
+| 01100 | 00100 | 010000 | 10000         | pos overflow |
+
+### 2.30
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/tadd_ok.c)
+
+### 2.31
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/tadd_ok.c)
+
+### 2.32
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/tadd_ok.c)
+
+TO BE CONTINUED...
