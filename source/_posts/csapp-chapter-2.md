@@ -8,7 +8,53 @@ tags: [CSAPP]
 
 ## Concepts
 
-TBD
+1. unsigned number (无符号整数)
+
+$$
+B2U_w(\vec{x}) = \sum_{i=0}^{w-1}x_i2^i
+$$
+
+2. two's complement (补码)
+
+$$
+B2T_w(\vec{x}) = -x_{w-1}2^{w-1} + \sum_{i=0}^{w-2}x_i2^i
+$$
+
+## Transform
+
+1. two's complement to unsigned
+
+$$
+T2U_w(x) = 
+\begin{cases}
+    x + 2^w, & x < 0 \\
+    x, & x \geqslant 0
+\end{cases}
+$$
+
+2. unsigned to two's complement
+
+$$
+U2T_w(u) = 
+\begin{cases}
+    u, & u \leqslant TMax_w \\
+    u - 2^w, & x > Tmax_w
+\end{cases}
+$$
+
+## Manipulation
+
+1. unsigned
+
+$$
+x *^u_w y = (x * y) \bmod 2^w
+$$
+
+2. two's complement
+
+$$
+x *^t_w y = U2T_w((x * y) \bmod 2^w)
+$$
 
 ## Excercises
 
@@ -407,4 +453,23 @@ C. Change to `return strlen(s) > strlen(t);`
 
 [related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/tadd_ok.c)
 
-TO BE CONTINUED...
+### 2.33
+
+| x(hex) | x(dec) | $-{^t_4}x$(dec) | $-{^t_4}x$(hex) |
+| ------ | ------ | --------------- | --------------- |
+| 0      | 0      | 0               | 0               |
+| 5      | 5      | -5              | B               |
+| 8      | -8     | -8              | 8               |
+| D      | -3     | 3               | 3               |
+| F      | -1     | 1               | 1               |
+
+### 2.34
+
+|     | x        | y        | x * y       | cutoff   |
+| --- | -------- | -------- | ----------- | -------- |
+| U   | [100] 4  | [101] 5  | [010100] 20 | [100] 4  |
+| T   | [100] -4 | [101] -3 | [001100] 12 | [100] -4 |
+| U   | [010] 2  | [111] 7  | [001110] 14 | [110] 6  |
+| T   | [010] 2  | [111] -1 | [111110] -2 | [110] 2  |
+| U   | [110] 6  | [110] 6  | [100100] 36 | [100] 4  |
+| T   | [110] -2 | [110] -2 | [000100] 4  | [100] -4 |
