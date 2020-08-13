@@ -62,33 +62,25 @@ $$
 
 A
 
-```text
-0x39A7F8
-0011 1001 1010 0111 1111 1000
-```
+    0x39A7F8
+    0011 1001 1010 0111 1111 1000
 
 B
 
-```text
-1100 1001 0111 1011
-   C    9    7    B
-0xC97B
-```
+    1100 1001 0111 1011
+       C    9    7    B
+    0xC97B
 
 C
 
-```text
-0xD5E4C
-1101 0101 1110 0100 1100
-```
+    0xD5E4C
+    1101 0101 1110 0100 1100
 
 D
 
-```text
-10 0110 1110 0111 1011 0101
- 2    6    E    7    B    5
-0x26E7B5
-```
+    10 0110 1110 0111 1011 0101
+     2    6    E    7    B    5
+    0x26E7B5
 
 ### 2.2
 
@@ -121,31 +113,21 @@ D
 
 A
 
-$$
-0x503C + 0x8 = 0x5044
-$$
+    0x503C + 0x8 = 0x5044
 
 B
 
-$$
-0x503C - 0x40 = 0x4FFC
-$$
+    0x503C - 0x40 = 0x4FFC
 
 C
 
-$$
-\begin{aligned}
-    0x503C + 64 \\
-    = 0x503C + 0x40 \\
+    0x503C + 64
+    = 0x503C + 0x40
     = 0x507C
-\end{aligned}
-$$
 
 D
 
-$$
-0x50EA - 0x503C = 0xAE
-$$
+    0x50EA - 0x503C = 0xAE
 
 ### 2.5
 
@@ -163,22 +145,18 @@ $$
 
 [related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/show_bytes.c)
 
-```C
-int    3510593   -> 0x00359141
-float  3510593.0 -> 0x4A564504
-```
+    int    3510593   -> 0x00359141
+    float  3510593.0 -> 0x4A564504
 
 A
 
-1. 0000 0000 0011 0101 1001 0001 0100 0001
-2. 0100 1010 0101 0110 0100 0101 0000 0100
+    1. 0000 0000 0011 0101 1001 0001 0100 0001
+    2. 0100 1010 0101 0110 0100 0101 0000 0100
 
 B
 
-```text
-       1101011001000101000001
-1001010010101100100010100000100
-```
+           1101011001000101000001
+    1001010010101100100010100000100
 
 C
 
@@ -219,11 +197,9 @@ A
 
 B
 
-blue | green = 001 | 010 = 011
-
-yellow & green = 110 & 010 = 010
-
-red ^ red-purple = 100 ^ 101 = 001
+    blue | green = 001 | 010 = 011
+    yellow & green = 110 & 010 = 010
+    red ^ red-purple = 100 ^ 101 = 001
 
 ### 2.10
 
@@ -240,37 +216,35 @@ red ^ red-purple = 100 ^ 101 = 001
 
 A
 
-k, k
+    k, k
 
 B
 
-mid = mid ^ mid = 0
+    mid = mid ^ mid = 0
 
 C
 
-change <= to <
+    change <= to <
 
 ### 2.12 
  
 A
 
-x & 0xFF
+    x & 0xFF
 
 B
 
-x ^ ~0xFF
+    x ^ ~0xFF
 
 C
 
-x | 0xFF
+    x | 0xFF
 
 ### 2.13
 
-bis -> |
-
-bic -> &~
-
-x ^ y = (x & ~y) | (~x & y)
+    bis -> |
+    bic -> &~
+    x ^ y = (x & ~y) | (~x & y)
 
 ```c
 int bool_or(int x, int y) {
@@ -286,9 +260,8 @@ int bool_xor(int x, int y) {
 
 ### 2.14
 
-x = 0x66 = 0110 0110
-
-y = 0x39 = 0011 1001
+    x = 0x66 = 0110 0110
+    y = 0x39 = 0011 1001
 
 | exp        | val       | hex  |
 | ---------- | --------- | ---- |
@@ -315,7 +288,7 @@ return !(x ^ y);
 | 0x75 (0111 0101) | (1010 1000) 0xA8 | (0001 1101) 0x1D | (0001 1101) 0x1D    |
 | 0x87 (1000 0111) | (0011 1000) 0x38 | (0010 0001) 0x21 | (1110 0001) 0xE1    |
 | 0x66 (0110 0110) | (0011 0000) 0x30 | (0001 1001) 0x19 | (0001 1001) 0x19    |
-
+         
 ### 2.17
 
 | hex | bin  | $B2U_4$            | $B2T_4$             |
@@ -403,19 +376,17 @@ return !(x ^ y);
 
 [related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/length.c)
 
-1. (unsigned)0 - 1 = 4294967295
-2. (unsigned)i <= 4294967295 (always true)
-3. access a[...]
+    1. (unsigned)0 - 1 = 4294967295
+    2. (unsigned)i <= 4294967295 (always true)
+    3. access a[...]
 
 ### 2.26
 
 [related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/strlonger.c)
 
-A. when strlen(s) < strlen(t), the result will be mistaken.
-
-B. (unsigned)0 - (unsigned)1 = 4294967295 > 0, so it will always return 1.
-
-C. Change to `return strlen(s) > strlen(t);`
+    A. when strlen(s) < strlen(t), the result will be mistaken.
+    B. (unsigned)0 - (unsigned)1 = 4294967295 > 0, so it will always return 1.
+    C. Change to `return strlen(s) > strlen(t);`
 
 ### 2.27
 
@@ -473,3 +444,99 @@ C. Change to `return strlen(s) > strlen(t);`
 | T   | [010] 2  | [111] -1 | [111110] -2 | [110] 2  |
 | U   | [110] 6  | [110] 6  | [100100] 36 | [100] 4  |
 | T   | [110] -2 | [110] -2 | [000100] 4  | [100] -4 |
+
+### 2.35
+
+no idea. skipping
+
+### 2.36
+
+[related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/tmult_ok.c)
+
+### 2.37
+
+A. Nothing works. malloc still need size_t argument
+
+B. [related code](https://github.com/hanxifu/my-csapp/blob/master/chapter2/fix_the_bug.c)
+
+### 2.38
+
+    k = 0, 1, 2, 3
+    when b = 0, we have 0x, 2x ,4x, 8x
+    when b = a, we have 1x, 3x, 5x, 9x
+    so we have (0, 1, 2, 3, 4, 5, 8, 9)x in total
+
+### 2.39
+
+$$-(x << m)$$
+
+### 2.40
+
+| K   | shift | plus/minus | exp                 |
+| --- | ----- | ---------- | ------------------- |
+| 6   | 2     | 1          | x << 2 + x << 1     |
+| 31  | 1     | 1          | x << 5 - x          |
+| -6  | 2     | 1          | x << 1 - x << 3     |
+| 55  | 2     | 2          | x << 6 - x << 3 - x |
+
+### 2.41
+
+$$
+\begin{cases}
+    n == m, & A \\
+    n == m + 1, & A/B \\
+    n > m + 1, & B \\
+\end{cases}
+$$
+
+### 2.42
+
+$$
+\begin{aligned}
+    k = 4 \\
+    2^k - 1 = 15 = 0xF \\
+    bias = (x >> 31) \& 0xF \\
+    x/16 = (x + bias) >> 4 \\
+\end{aligned}
+$$
+
+### 2.43
+
+$$
+\begin{aligned}
+    x = x << 5 - x = 31x \\
+    y = (y + (2^k - 1)) >> 3 \\
+    M = 31, N = 8 \\
+\end{aligned}
+$$
+
+### 2.44
+
+A. False
+
+    x = INT_MIN, x - 1 = 0
+
+B. True
+
+    (x & 7) == 7 => x = ...111
+    x << 29 -> x = 111... < 0 -> True
+
+C. False
+
+    Try with 0xF000, it will overflow and turn out to be a negative number
+
+D. True
+
+    -x <= 0 -> x >= 0
+    x < 0 || -x <= 0 -> x < 0 || x >= 0 -> True
+
+E. False
+
+    x = INT_MIN < 0, -x = INT_MIN < 0
+
+F. True
+
+G. True
+
+    ~y == -y - 1
+    x * (-y - 1) + y * x = x * (-y - 1 + y) = -x == -x
